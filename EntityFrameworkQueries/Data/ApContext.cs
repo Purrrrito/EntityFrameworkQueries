@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EntityFrameworkQueries;
 
-public partial class ApContext : DbContext
+public partial class APContext : DbContext
 {
-    public ApContext()
+    public APContext()
     {
     }
 
-    public ApContext(DbContextOptions<ApContext> options)
+    public APContext(DbContextOptions<APContext> options)
         : base(options)
     {
     }
