@@ -17,17 +17,17 @@ public partial class ApContext : DbContext
 
     public virtual DbSet<ContactUpdate> ContactUpdates { get; set; }
 
-    public virtual DbSet<Glaccount> Glaccounts { get; set; }
+    public virtual DbSet<Models.Glaccount> Glaccounts { get; set; }
 
-    public virtual DbSet<Invoice> Invoices { get; set; }
+    public virtual DbSet<Models.Invoice> Invoices { get; set; }
 
-    public virtual DbSet<InvoiceArchive> InvoiceArchives { get; set; }
+    public virtual DbSet<Models.InvoiceArchive> InvoiceArchives { get; set; }
 
-    public virtual DbSet<InvoiceLineItem> InvoiceLineItems { get; set; }
+    public virtual DbSet<Models.InvoiceLineItem> InvoiceLineItems { get; set; }
 
-    public virtual DbSet<Term> Terms { get; set; }
+    public virtual DbSet<Models.Term> Terms { get; set; }
 
-    public virtual DbSet<Vendor> Vendors { get; set; }
+    public virtual DbSet<Models.Vendor> Vendors { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -50,7 +50,7 @@ public partial class ApContext : DbContext
                 .HasColumnName("VendorID");
         });
 
-        modelBuilder.Entity<Glaccount>(entity =>
+        modelBuilder.Entity<Models.Glaccount>(entity =>
         {
             entity.HasKey(e => e.AccountNo);
 
@@ -62,7 +62,7 @@ public partial class ApContext : DbContext
                 .IsUnicode(false);
         });
 
-        modelBuilder.Entity<Invoice>(entity =>
+        modelBuilder.Entity<Models.Invoice>(entity =>
         {
             entity.HasIndex(e => e.InvoiceDate, "IX_InvoiceDate").IsDescending();
 
@@ -94,7 +94,7 @@ public partial class ApContext : DbContext
                 .HasConstraintName("FK_Invoices_Vendors");
         });
 
-        modelBuilder.Entity<InvoiceArchive>(entity =>
+        modelBuilder.Entity<Models.InvoiceArchive>(entity =>
         {
             entity
                 .HasNoKey()
@@ -114,7 +114,7 @@ public partial class ApContext : DbContext
             entity.Property(e => e.VendorId).HasColumnName("VendorID");
         });
 
-        modelBuilder.Entity<InvoiceLineItem>(entity =>
+        modelBuilder.Entity<Models.InvoiceLineItem>(entity =>
         {
             entity.HasKey(e => new { e.InvoiceId, e.InvoiceSequence });
 
@@ -136,7 +136,7 @@ public partial class ApContext : DbContext
                 .HasConstraintName("FK_InvoiceLineItems_Invoices");
         });
 
-        modelBuilder.Entity<Term>(entity =>
+        modelBuilder.Entity<Models.Term>(entity =>
         {
             entity.HasKey(e => e.TermsId);
 
@@ -146,7 +146,7 @@ public partial class ApContext : DbContext
                 .IsUnicode(false);
         });
 
-        modelBuilder.Entity<Vendor>(entity =>
+        modelBuilder.Entity<Models.Vendor>(entity =>
         {
             entity.HasIndex(e => e.VendorName, "IX_VendorName");
 
