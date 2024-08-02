@@ -32,6 +32,7 @@
 			btnAllCaliVendors = new Button();
 			btnSelectSpecificColumns = new Button();
 			btnMiscQueries = new Button();
+			btnVendorsAndInvoices = new Button();
 			SuspendLayout();
 			// 
 			// btnSelectAllVendors
@@ -74,11 +75,22 @@
 			btnMiscQueries.UseVisualStyleBackColor = true;
 			btnMiscQueries.Click += btnMiscQueries_Click;
 			// 
+			// btnVendorsAndInvoices
+			// 
+			btnVendorsAndInvoices.Location = new Point(22, 190);
+			btnVendorsAndInvoices.Name = "btnVendorsAndInvoices";
+			btnVendorsAndInvoices.Size = new Size(232, 23);
+			btnVendorsAndInvoices.TabIndex = 4;
+			btnVendorsAndInvoices.Text = "Select all Vendors with their Invoices";
+			btnVendorsAndInvoices.UseVisualStyleBackColor = true;
+			btnVendorsAndInvoices.Click += btnVendorsAndInvoices_Click;
+			// 
 			// Form1
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(800, 450);
+			Controls.Add(btnVendorsAndInvoices);
 			Controls.Add(btnMiscQueries);
 			Controls.Add(btnSelectSpecificColumns);
 			Controls.Add(btnAllCaliVendors);
@@ -94,5 +106,6 @@
 		private Button btnAllCaliVendors;
 		private Button btnSelectSpecificColumns;
 		private Button btnMiscQueries;
+		private Button btnVendorsAndInvoices;
 	}
 }
