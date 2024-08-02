@@ -36,7 +36,7 @@ public partial class APContext : DbContext
         => optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AP");
 
 
-        optionsBuilder.LogTo(message => Debug.WriteLine(message), new[] {DbLoggerCategory.Database.Command.Name});
+        optionsBuilder.LogTo(message => Debug.WriteLine(message), new[] {DbLoggerCategory.Query.Name});
     }
 
 
